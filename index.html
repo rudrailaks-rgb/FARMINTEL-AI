@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ILAKS - Laptop Remote & Dragpad PRO</title>
+  <meta name="description" content="ILAKS Laptop Remote Control Center and Dragpad PRO Precision Touchpad & Keyboard for Windows PC.">
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Background Ambient Glows -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+
+  <!-- View Mode Switcher Header for Desktop Users -->
+  <header class="app-viewport-bar" id="viewportBar">
+    <div class="viewport-title">
+      <span class="pulse-dot"></span>
+      <span id="activeScreenTitle">ILAKS Remote Controller</span>
+    </div>
+    <div class="viewport-controls">
+      <button class="view-toggle-btn active" id="btnPhoneView" title="Preview in Phone Frame">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+        <span>Mobile Frame</span>
+      </button>
+      <button class="view-toggle-btn" id="btnFullView" title="Expand Full View">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+        <span>Expanded View</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Mobile Container Wrapper -->
+  <main class="device-wrapper" id="deviceWrapper">
+    <div class="phone-frame" id="phoneFrame">
+      <!-- Simulated Mobile Status Bar -->
+      <div class="phone-status-bar" id="phoneStatusBar">
+        <span class="status-time" id="statusClock">9:41</span>
+        <div class="status-notch">
+          <div class="notch-speaker"></div>
+          <div class="notch-camera"></div>
+        </div>
+        <div class="status-icons">
+          <svg class="status-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4 18.59V21h2.41l.98-.97C8.93 20.66 10.42 21 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 14c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+          </svg>
+          <svg class="status-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4z"/>
+          </svg>
+          <div class="battery-icon">
+            <div class="battery-level"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           SCREEN 1: HOME PAGE (ILAKS Laptop Remote)
+           =================================================================== -->
+      <div class="screen-view active" id="screenHome">
+        <div class="app-scroll-container">
+          <!-- Top App Header -->
+          <header class="app-header">
+            <div class="brand-group">
+              <div class="brand-icon-box" id="brandLogo">
+                <!-- Laptop Outline Icon -->
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                  <path d="M2 20h20"></path>
+                </svg>
+              </div>
+              <div class="brand-text">
+                <h1 class="brand-name">ILAKS</h1>
+                <p class="brand-tagline">Laptop Remote</p>
+              </div>
+            </div>
+
+            <!-- Top Right Settings Sliders Icon -->
+            <button class="icon-btn-ghost" id="openSettingsBtn" aria-label="Settings and Control Preferences">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+            </button>
+          </header>
+
+          <!-- Connected Device Card -->
+          <section class="device-card" id="deviceCard">
+            <div class="device-info-row" id="deviceDetailsTrigger">
+              <div class="device-icon-box">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                  <path d="M2 20h20"></path>
+                </svg>
+              </div>
+              <div class="device-meta">
+                <h2 class="device-name" id="currentDeviceName">My Windows Laptop</h2>
+                <div class="device-status">
+                  <span class="status-indicator-dot"></span>
+                  <span class="status-text" id="connectionStatusText">Connected via Bluetooth</span>
+                </div>
+              </div>
+              <div class="device-chevron">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Manage Connection Primary Button -->
+            <button class="btn-manage-connection" id="manageConnectionBtn" aria-label="Manage Bluetooth or Wi-Fi Connection">
+              <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"></polyline>
+              </svg>
+              <span>Manage Connection</span>
+            </button>
+          </section>
+
+          <!-- Section Title: Control Center -->
+          <div class="section-header">
+            <h2 class="section-title">Control Center</h2>
+          </div>
+
+          <!-- 6-Grid Control Center Cards -->
+          <section class="control-grid" aria-label="Control Center Tools">
+            <!-- Card 1: Touchpad -->
+            <button class="control-card" id="cardTouchpad" data-module="touchpad">
+              <div class="card-icon mouse-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="6" y="3" width="12" height="18" rx="6"></rect>
+                  <line x1="12" y1="7" x2="12" y2="11"></line>
+                </svg>
+              </div>
+              <span class="card-title">Touchpad</span>
+              <span class="card-subtitle">Mouse & gestures</span>
+            </button>
+
+            <!-- Card 2: Keyboard -->
+            <button class="control-card" id="cardKeyboard" data-module="keyboard">
+              <div class="card-icon keyboard-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="3"></rect>
+                  <circle cx="6" cy="9" r="0.75" fill="currentColor"></circle>
+                  <circle cx="10" cy="9" r="0.75" fill="currentColor"></circle>
+                  <circle cx="14" cy="9" r="0.75" fill="currentColor"></circle>
+                  <circle cx="18" cy="9" r="0.75" fill="currentColor"></circle>
+                  <circle cx="6" cy="13" r="0.75" fill="currentColor"></circle>
+                  <circle cx="18" cy="13" r="0.75" fill="currentColor"></circle>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              </div>
+              <span class="card-title">Keyboard</span>
+              <span class="card-subtitle">Type on PC</span>
+            </button>
+
+            <!-- Card 3: Media -->
+            <button class="control-card" id="cardMedia" data-module="media">
+              <div class="card-icon soundwave-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 11v2"></path>
+                </svg>
+              </div>
+              <span class="card-title">Media</span>
+              <span class="card-subtitle">Music & volume</span>
+            </button>
+
+            <!-- Card 4: Apps -->
+            <button class="control-card" id="cardApps" data-module="apps">
+              <div class="card-icon apps-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="20" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <span class="card-title">Apps</span>
+              <span class="card-subtitle">Launch on PC</span>
+            </button>
+
+            <!-- Card 5: Files -->
+            <button class="control-card" id="cardFiles" data-module="files">
+              <div class="card-icon files-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <span class="card-title">Files</span>
+              <span class="card-subtitle">Browse & transfer</span>
+            </button>
+
+            <!-- Card 6: Presentation -->
+            <button class="control-card" id="cardPresentation" data-module="presentation">
+              <div class="card-icon presentation-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="12" rx="1.5"></rect>
+                  <line x1="12" y1="16" x2="12" y2="21"></line>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                </svg>
+              </div>
+              <span class="card-title">Presentation</span>
+              <span class="card-subtitle">Slides & pointer</span>
+            </button>
+          </section>
+
+          <!-- Quick Touchpad Section -->
+          <section class="quick-touchpad-card" id="quickTouchpadSection">
+            <div class="touchpad-card-header">
+              <div class="touchpad-titles">
+                <h3 class="touchpad-title">Quick Touchpad</h3>
+                <p class="touchpad-subtitle">Move · Tap · Scroll</p>
+              </div>
+              <button class="icon-expand-btn" id="expandTouchpadBtn" aria-label="Expand Fullscreen Dragpad">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Interactive Quick Touch Surface -->
+            <div class="touch-surface" id="touchpadSurface" tabindex="0" role="region" aria-label="Interactive Touch Surface">
+              <div class="touch-ripple-container" id="rippleContainer"></div>
+              <div class="touch-pointer-marker" id="pointerMarker">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="3 3 10.5 21 14 13.5 21.5 10 3 3"></polygon>
+                </svg>
+              </div>
+              <div class="touch-center-indicator" id="touchIndicator">
+                <svg class="touch-cursor-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="3 3 10.5 21 14 13.5 21.5 10 3 3"></polygon>
+                </svg>
+                <span class="touch-hint-text">Touch to control your laptop</span>
+              </div>
+              <div class="touch-coords" id="touchpadCoords">dx: 0, dy: 0</div>
+            </div>
+
+            <!-- Click Buttons Row -->
+            <div class="touchpad-buttons-row">
+              <button class="btn-click btn-left-click" id="btnLeftClick">
+                <span>Left click</span>
+              </button>
+              <button class="btn-click btn-right-click" id="btnRightClick">
+                <span>Right click</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Media Control Bottom Banner -->
+          <section class="media-banner-card" id="mediaBannerCard">
+            <div class="media-track-info" id="mediaTrackInfoTrigger">
+              <h3 class="media-banner-title">Media Control</h3>
+              <div class="media-now-playing-row">
+                <div class="equalizer-bars" id="equalizerVisualizer">
+                  <span></span><span></span><span></span>
+                </div>
+                <p class="media-banner-subtitle" id="mediaStatusSubtitle">No media playing</p>
+              </div>
+            </div>
+            <div class="media-player-actions">
+              <button class="media-btn" id="btnPrevTrack" aria-label="Previous Track">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                </svg>
+              </button>
+              <button class="media-btn-play" id="btnPlayPause" aria-label="Play or Pause">
+                <svg class="icon-play" id="iconPlay" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <polygon points="6 4 20 12 6 20 6 4"/>
+                </svg>
+                <svg class="icon-pause hide" id="iconPause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <rect x="6" y="5" width="4" height="14" rx="1"/>
+                  <rect x="14" y="5" width="4" height="14" rx="1"/>
+                </svg>
+              </button>
+              <button class="media-btn" id="btnNextTrack" aria-label="Next Track">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                </svg>
+              </button>
+            </div>
+          </section>
+
+          <div class="nav-spacer"></div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           SCREEN 2: TOUCHPAD PAGE (Dragpad PRO - Precision Control)
+           =================================================================== -->
+      <div class="screen-view" id="screenTouchpad">
+        <div class="dragpad-page-layout">
+          <!-- Dragpad Header -->
+          <header class="dragpad-header">
+            <div class="dragpad-brand-left">
+              <div class="brand-icon-box dragpad-logo">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                  <path d="M2 20h20"></path>
+                </svg>
+              </div>
+              <div class="dragpad-titles">
+                <div class="dragpad-name-row">
+                  <h2 class="dragpad-brand-name">Dragpad</h2>
+                  <span class="pro-badge">PRO</span>
+                </div>
+                <p class="dragpad-subtag">PRECISION CONTROL</p>
+              </div>
+            </div>
+
+            <div class="dragpad-header-right">
+              <div class="bt-pill-status">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"></polyline>
+                </svg>
+                <span class="status-indicator-dot"></span>
+              </div>
+              <button class="icon-btn-ghost gear-btn" id="dragpadSettingsBtn" aria-label="Settings">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <!-- Status Strip: MY WINDOWS LAPTOP · CONNECTED -->
+          <div class="device-status-strip">
+            <span class="status-indicator-dot"></span>
+            <span class="status-strip-text">MY WINDOWS LAPTOP · <strong>CONNECTED</strong></span>
+          </div>
+
+          <!-- Giant Dragpad Surface Area -->
+          <div class="dragpad-giant-surface" id="giantTouchpadSurface" tabindex="0">
+            <div class="dragpad-ripple-wrap" id="giantRippleWrap"></div>
+            <div class="touch-pointer-marker" id="giantPointerMarker">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 3 10.5 21 14 13.5 21.5 10 3 3"></polygon>
+              </svg>
+            </div>
+            <!-- Bottom floating gesture guideline pill -->
+            <div class="gesture-guide-pill">
+              <span>MOVE WITH ONE FINGER · SCROLL WITH TWO</span>
+            </div>
+          </div>
+
+          <!-- Unified Split Left Click | Right Click Bar -->
+          <div class="split-click-bar">
+            <button class="split-click-half split-left" id="btnSplitLeftClick">
+              <svg class="mouse-stroke-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="3" width="12" height="18" rx="6"></rect>
+                <line x1="12" y1="3" x2="12" y2="10"></line>
+                <path d="M6 10h12"></path>
+              </svg>
+              <span>LEFT CLICK</span>
+            </button>
+            <div class="split-divider"></div>
+            <button class="split-click-half split-right" id="btnSplitRightClick">
+              <span>RIGHT CLICK</span>
+              <svg class="mouse-stroke-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="3" width="12" height="18" rx="6"></rect>
+                <line x1="12" y1="3" x2="12" y2="10"></line>
+                <path d="M6 10h12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Dragpad Mode Tabs (MOVE | SCROLL | DRAG) -->
+          <div class="dragpad-modes-tabs">
+            <button class="mode-tab-btn active" data-mode="MOVE">
+              <span>MOVE</span>
+              <div class="mode-indicator-bar"></div>
+            </button>
+            <button class="mode-tab-btn" data-mode="SCROLL">
+              <span>SCROLL</span>
+              <div class="mode-indicator-bar"></div>
+            </button>
+            <button class="mode-tab-btn" data-mode="DRAG">
+              <span>DRAG</span>
+              <div class="mode-indicator-bar"></div>
+            </button>
+          </div>
+
+          <!-- Cursor Speed Slider -->
+          <div class="cursor-speed-control">
+            <div class="speed-label-row">
+              <span class="speed-title">CURSOR SPEED</span>
+              <span class="speed-val-badge" id="speedLabelText">NORMAL</span>
+            </div>
+            <div class="custom-range-wrap">
+              <input type="range" min="1" max="3" step="1" value="2" id="dragpadSpeedSlider" class="precision-slider">
+            </div>
+            <div class="speed-ticks-row">
+              <span class="tick-label">SLOW</span>
+              <span class="tick-label tick-active" id="tickCenter">NORMAL</span>
+              <span class="tick-label">FAST</span>
+            </div>
+          </div>
+
+          <div class="nav-spacer-sm"></div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           SCREEN 3: KEYBOARD PAGE (Interactive PC Keyboard & Clipboard)
+           =================================================================== -->
+      <div class="screen-view" id="screenKeyboard">
+        <div class="keyboard-page-layout">
+          <!-- Keyboard Header with Back Arrow -->
+          <header class="keyboard-header">
+            <button class="icon-btn-ghost btn-back-home" id="btnBackFromKeyboard" aria-label="Go Back">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+            <div class="keyboard-titles">
+              <h2 class="keyboard-brand-name">Keyboard</h2>
+              <p class="keyboard-subtag">Type on your laptop</p>
+            </div>
+            <div class="keyboard-header-right">
+              <div class="bt-pill-status">
+                <span class="status-indicator-dot"></span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"></polyline>
+                </svg>
+              </div>
+              <button class="icon-btn-ghost gear-btn" id="keyboardSettingsBtn" aria-label="Settings">
+                <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+              </button>
+              <div class="user-avatar-badge" title="User Profile">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+              </div>
+            </div>
+          </header>
+
+          <!-- Status Strip: MY WINDOWS LAPTOP · CONNECTED -->
+          <div class="device-status-strip">
+            <span class="status-indicator-dot"></span>
+            <span class="status-strip-text">MY WINDOWS LAPTOP · <strong>CONNECTED</strong></span>
+          </div>
+
+          <!-- Keyboard Mode Tabs (TEXT | SHORTCUTS | NAVIGATION) -->
+          <div class="keyboard-modes-tabs">
+            <button class="kb-tab-btn active" data-tab="TEXT">
+              <span>TEXT</span>
+              <div class="kb-indicator-bar"></div>
+            </button>
+            <button class="kb-tab-btn" data-tab="SHORTCUTS">
+              <span>SHORTCUTS</span>
+              <div class="kb-indicator-bar"></div>
+            </button>
+            <button class="kb-tab-btn" data-tab="NAVIGATION">
+              <span>NAVIGATION</span>
+              <div class="kb-indicator-bar"></div>
+            </button>
+          </div>
+
+          <!-- Scrollable Keyboard Content Area -->
+          <div class="keyboard-scroll-body">
+            <!-- Text Input Card -->
+            <section class="kb-input-card">
+              <div class="kb-input-card-top">
+                <div class="status-chars-count">
+                  <span class="status-indicator-dot"></span>
+                  <span id="charCountLabel">Ready to type · 0 chars</span>
+                </div>
+                <div class="kb-card-actions">
+                  <button class="kb-pill-action" id="btnClearText">
+                    <span>✕ Clear</span>
+                  </button>
+                  <button class="kb-icon-action" id="btnMicDictate" aria-label="Voice Dictate">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                      <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Textarea for Typing to Windows PC -->
+              <textarea class="kb-textarea" id="kbLiveTextarea" rows="3" placeholder="Type a message or command to send to Windows PC..."></textarea>
+
+              <div class="kb-input-card-bottom">
+                <div class="live-keystroke-toggle-group">
+                  <label class="toggle-switch sm-toggle">
+                    <input type="checkbox" id="liveKeystrokeToggle">
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span class="toggle-text">Live Keystrokes</span>
+                </div>
+                <button class="btn-send-to-pc" id="btnSendToPC">
+                  <span>Send to PC</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                  </svg>
+                </button>
+              </div>
+            </section>
+
+            <!-- Section 1: WINDOWS SHORTCUTS -->
+            <div class="kb-section-head">
+              <span class="kb-sec-title">WINDOWS SHORTCUTS</span>
+              <span class="kb-sec-hint">Tap to trigger</span>
+            </div>
+            <div class="shortcuts-quad-grid">
+              <button class="shortcut-quad-card" data-shortcut="Ctrl + C">
+                <strong class="sc-key">Ctrl + C</strong>
+                <span class="sc-desc">Copy</span>
+              </button>
+              <button class="shortcut-quad-card" data-shortcut="Ctrl + V">
+                <strong class="sc-key">Ctrl + V</strong>
+                <span class="sc-desc">Paste</span>
+              </button>
+              <button class="shortcut-quad-card" data-shortcut="Ctrl + Z">
+                <strong class="sc-key">Ctrl + Z</strong>
+                <span class="sc-desc">Undo</span>
+              </button>
+              <button class="shortcut-quad-card" data-shortcut="Ctrl + A">
+                <strong class="sc-key">Ctrl + A</strong>
+                <span class="sc-desc">Select All</span>
+              </button>
+            </div>
+
+            <!-- Section 2: SPECIAL KEYS & MODIFIERS -->
+            <div class="kb-section-head">
+              <span class="kb-sec-title">SPECIAL KEYS & MODIFIERS</span>
+            </div>
+            <div class="special-keys-matrix">
+              <!-- Row 1: Esc, Tab, Ctrl, Alt, Shift, Win -->
+              <div class="matrix-row">
+                <button class="mod-key" data-key="Esc">Esc</button>
+                <button class="mod-key" data-key="Tab">Tab</button>
+                <button class="mod-key" data-key="Ctrl">Ctrl</button>
+                <button class="mod-key" data-key="Alt">Alt</button>
+                <button class="mod-key" data-key="Shift">Shift</button>
+                <button class="mod-key win-key" data-key="Win" title="Windows Key">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M3 5.5l7-1v6.5H3V5.5zm8-1.2l10-1.3v7.8H11V4.3zM3 13h7v6.5l-7-1V13zm8 0h10v7.8l-10-1.3V13z"/>
+                  </svg>
+                </button>
+              </div>
+              <!-- Row 2: Backspace, Space, Del, Enter -->
+              <div class="matrix-row">
+                <button class="mod-key key-bs" data-key="Backspace" title="Backspace">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+                    <line x1="18" y1="9" x2="12" y2="15"></line>
+                    <line x1="12" y1="9" x2="18" y2="15"></line>
+                  </svg>
+                </button>
+                <button class="mod-key key-space" data-key="SPACE">SPACE</button>
+                <button class="mod-key key-del" data-key="Del">Del</button>
+                <button class="mod-key key-enter" data-key="Enter" title="Enter">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 10 4 15 9 20"></polyline>
+                    <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Section 3: NAVIGATION & POINTER BLOCK -->
+            <div class="kb-section-head">
+              <span class="kb-sec-title">NAVIGATION & POINTER BLOCK</span>
+              <span class="kb-sec-hint">Tactile Matrix</span>
+            </div>
+            <div class="nav-pointer-block">
+              <!-- Left 2x2 grid -->
+              <div class="nav-cluster-grid">
+                <button class="nav-tile" data-key="Home">
+                  <strong class="tile-title">Home</strong>
+                  <span class="tile-sub">Top</span>
+                </button>
+                <button class="nav-tile" data-key="PageUp">
+                  <strong class="tile-title">PgUp</strong>
+                  <span class="tile-sub">Scroll ↑</span>
+                </button>
+                <button class="nav-tile" data-key="End">
+                  <strong class="tile-title">End</strong>
+                  <span class="tile-sub">Bottom</span>
+                </button>
+                <button class="nav-tile" data-key="PageDown">
+                  <strong class="tile-title">PgDn</strong>
+                  <span class="tile-sub">Scroll ↓</span>
+                </button>
+              </div>
+
+              <!-- Right D-Pad layout -->
+              <div class="dpad-cluster">
+                <div class="dpad-row dpad-top">
+                  <button class="dpad-key" data-key="ArrowUp" title="Up">▲</button>
+                </div>
+                <div class="dpad-row dpad-bottom">
+                  <button class="dpad-key" data-key="ArrowLeft" title="Left">◀</button>
+                  <button class="dpad-key" data-key="ArrowDown" title="Down">▼</button>
+                  <button class="dpad-key" data-key="ArrowRight" title="Right">▶</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4: Universal Clipboard -->
+            <section class="universal-clipboard-card">
+              <div class="uc-header">
+                <div class="uc-title-group">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                  </svg>
+                  <strong class="uc-title">Universal Clipboard</strong>
+                </div>
+                <div class="uc-toggle-wrap">
+                  <span class="uc-toggle-label">Auto-Sync</span>
+                  <label class="toggle-switch sm-toggle">
+                    <input type="checkbox" id="autoSyncToggle" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="uc-actions-row">
+                <button class="btn-uc-action" id="btnPushPhoneClip">
+                  <span class="uc-btn-icon cyan-text">📲</span>
+                  <span>Push Phone Clip</span>
+                </button>
+                <button class="btn-uc-action" id="btnPasteOnLaptop">
+                  <span class="uc-btn-icon purple-text">💻</span>
+                  <span>Paste on Laptop</span>
+                </button>
+              </div>
+
+              <div class="uc-footer-status">
+                <div class="uc-status-left">
+                  <span class="status-indicator-dot"></span>
+                  <span class="uc-mono-text">HID Profile Active</span>
+                </div>
+                <span class="uc-latency-text">Latency: 3.4ms</span>
+              </div>
+            </section>
+
+            <div class="nav-spacer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           BOTTOM UNIFIED NAVIGATION BAR
+           =================================================================== -->
+      <nav class="bottom-nav-bar" id="bottomNavBar" aria-label="Main Navigation">
+        <!-- 1. Home Tab -->
+        <button class="nav-item active" data-target="home" id="tabHome">
+          <div class="nav-icon-wrap">
+            <!-- 4 Squares Grid Icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+            </svg>
+          </div>
+          <span class="nav-label">Home</span>
+          <div class="nav-indicator-pill"></div>
+        </button>
+
+        <!-- 2. Touchpad Tab -->
+        <button class="nav-item" data-target="touchpad" id="tabTouchpad">
+          <div class="nav-icon-wrap">
+            <!-- Mouse inside rounded card -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="3" width="14" height="18" rx="4"></rect>
+              <line x1="12" y1="7" x2="12" y2="11"></line>
+            </svg>
+          </div>
+          <span class="nav-label">Touchpad</span>
+          <div class="nav-indicator-pill"></div>
+        </button>
+
+        <!-- 3. Keyboard Tab -->
+        <button class="nav-item" data-target="keyboard" id="tabKeyboard">
+          <div class="nav-icon-wrap">
+            <!-- Keyboard Icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="6" width="20" height="12" rx="2.5"></rect>
+              <line x1="6" y1="10" x2="6.01" y2="10"></line>
+              <line x1="10" y1="10" x2="10.01" y2="10"></line>
+              <line x1="14" y1="10" x2="14.01" y2="10"></line>
+              <line x1="18" y1="10" x2="18.01" y2="10"></line>
+              <line x1="8" y1="14" x2="16" y2="14"></line>
+            </svg>
+          </div>
+          <span class="nav-label">Keyboard</span>
+          <div class="nav-indicator-pill"></div>
+        </button>
+
+        <!-- 4. Media Tab -->
+        <button class="nav-item" data-target="media" id="tabMedia">
+          <div class="nav-icon-wrap">
+            <!-- Play Circle Icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
+            </svg>
+          </div>
+          <span class="nav-label">Media</span>
+          <div class="nav-indicator-pill"></div>
+        </button>
+
+        <!-- 5. More Tab -->
+        <button class="nav-item" data-target="more" id="tabMore">
+          <div class="nav-icon-wrap">
+            <!-- Three Horizontal Dots -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <circle cx="5" cy="12" r="2"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+              <circle cx="19" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <span class="nav-label">More</span>
+          <div class="nav-indicator-pill"></div>
+        </button>
+      </nav>
+    </div>
+  </main>
+
+  <!-- Interactive Slide-up Sheets / Modals -->
+  <!-- 1. Connection Manager Modal -->
+  <div class="modal-backdrop" id="connectionModal">
+    <div class="modal-sheet">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-sheet-header">
+        <div class="modal-sheet-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"></polyline></svg>
+          <span>Connection Manager</span>
+        </div>
+        <button class="modal-close-btn" data-close-modal>✕</button>
+      </div>
+      <div class="modal-sheet-body">
+        <div class="connection-status-panel">
+          <div class="conn-item">
+            <span class="conn-label">Current Device</span>
+            <span class="conn-val highlight">My Windows Laptop (DESKTOP-ILAKS)</span>
+          </div>
+          <div class="conn-item">
+            <span class="conn-label">Interface</span>
+            <span class="conn-badge green">Bluetooth Low Energy 5.3</span>
+          </div>
+          <div class="conn-item">
+            <span class="conn-label">Latency / Response</span>
+            <span class="conn-val">3.2 ms <span class="badge-sub">Optimal</span></span>
+          </div>
+          <div class="conn-item">
+            <span class="conn-label">Signal Strength</span>
+            <span class="conn-val">-44 dBm (98% signal)</span>
+          </div>
+          <div class="conn-item">
+            <span class="conn-label">Laptop Battery</span>
+            <span class="conn-val">86% ⚡ Charging</span>
+          </div>
+        </div>
+
+        <div class="device-switch-list">
+          <span class="sub-label">Discovered Devices</span>
+          <div class="discovered-card active">
+            <div class="disc-left">
+              <span class="disc-icon">💻</span>
+              <div>
+                <strong>My Windows Laptop</strong>
+                <small>Connected • Primary</small>
+              </div>
+            </div>
+            <span class="active-badge">Active</span>
+          </div>
+          <div class="discovered-card">
+            <div class="disc-left">
+              <span class="disc-icon">🖥️</span>
+              <div>
+                <strong>Living Room PC</strong>
+                <small>Available via Wi-Fi (192.168.1.104)</small>
+              </div>
+            </div>
+            <button class="btn-connect-sm">Connect</button>
+          </div>
+        </div>
+
+        <div class="sheet-actions">
+          <button class="btn-sheet-primary" id="btnTestPing">
+            <span>Ping Device (Test Latency)</span>
+          </button>
+          <button class="btn-sheet-danger" id="btnDisconnectToggle">
+            <span>Disconnect from Laptop</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Apps Launcher Modal -->
+  <div class="modal-backdrop" id="appsModal">
+    <div class="modal-sheet">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-sheet-header">
+        <div class="modal-sheet-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"></rect></svg>
+          <span>PC Apps Launcher</span>
+        </div>
+        <button class="modal-close-btn" data-close-modal>✕</button>
+      </div>
+      <div class="modal-sheet-body">
+        <div class="apps-launcher-grid">
+          <div class="app-item-btn" data-app="Google Chrome">
+            <div class="app-icon-circ chrome-gradient">🌐</div>
+            <span>Chrome</span>
+          </div>
+          <div class="app-item-btn" data-app="Visual Studio Code">
+            <div class="app-icon-circ vscode-gradient">💻</div>
+            <span>VS Code</span>
+          </div>
+          <div class="app-item-btn" data-app="Spotify">
+            <div class="app-icon-circ spotify-gradient">🎵</div>
+            <span>Spotify</span>
+          </div>
+          <div class="app-item-btn" data-app="File Explorer">
+            <div class="app-icon-circ files-gradient">📁</div>
+            <span>Explorer</span>
+          </div>
+          <div class="app-item-btn" data-app="Windows Terminal">
+            <div class="app-icon-circ terminal-gradient">⌨️</div>
+            <span>Terminal</span>
+          </div>
+          <div class="app-item-btn" data-app="Task Manager">
+            <div class="app-icon-circ taskmgr-gradient">📊</div>
+            <span>Task Mgr</span>
+          </div>
+          <div class="app-item-btn" data-app="Calculator">
+            <div class="app-icon-circ calc-gradient">🧮</div>
+            <span>Calculator</span>
+          </div>
+          <div class="app-item-btn" data-app="PC Lock Screen">
+            <div class="app-icon-circ lock-gradient">🔒</div>
+            <span>Lock PC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Presentation Remote Modal -->
+  <div class="modal-backdrop" id="presentationModal">
+    <div class="modal-sheet">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-sheet-header">
+        <div class="modal-sheet-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect></svg>
+          <span>PowerPoint / Slides Remote</span>
+        </div>
+        <button class="modal-close-btn" data-close-modal>✕</button>
+      </div>
+      <div class="modal-sheet-body">
+        <div class="slide-counter-card">
+          <span>Current Slide:</span>
+          <strong id="slideCounterDisplay">Slide 12 / 45</strong>
+          <small>Presentation Active • 14:20 elapsed</small>
+        </div>
+        <div class="pres-buttons-grid">
+          <button class="pres-btn big-btn" id="btnSlidePrev">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Previous Slide</span>
+          </button>
+          <button class="pres-btn big-btn primary-glow" id="btnSlideNext">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <span>Next Slide</span>
+          </button>
+        </div>
+        <div class="pres-sub-actions">
+          <button class="pres-tool-btn" id="btnLaserPointer">
+            <span class="laser-dot"></span>
+            <span>Virtual Laser Pointer</span>
+          </button>
+          <button class="pres-tool-btn" id="btnBlackoutScreen">
+            <span>⬛ Black Screen (B)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Settings & Preferences Modal -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal-sheet">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-sheet-header">
+        <div class="modal-sheet-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Preferences & Control</span>
+        </div>
+        <button class="modal-close-btn" data-close-modal>✕</button>
+      </div>
+      <div class="modal-sheet-body">
+        <div class="setting-slider-group">
+          <div class="setting-row-text">
+            <span>Mouse Sensitivity</span>
+            <span class="setting-num" id="sensValue">1.4x</span>
+          </div>
+          <input type="range" min="0.5" max="3.0" step="0.1" value="1.4" id="sensSlider" class="range-slider">
+        </div>
+
+        <div class="setting-slider-group">
+          <div class="setting-row-text">
+            <span>Scroll Speed</span>
+            <span class="setting-num" id="scrollValue">1.0x</span>
+          </div>
+          <input type="range" min="0.5" max="2.5" step="0.1" value="1.0" id="scrollSlider" class="range-slider">
+        </div>
+
+        <div class="setting-toggle-row">
+          <div>
+            <strong>Audio Click Feedback</strong>
+            <small>Play subtle synthesized haptic sound on tap</small>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="hapticAudioToggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-toggle-row">
+          <div>
+            <strong>Auto Reconnect</strong>
+            <small>Reconnect automatically if Bluetooth sleeps</small>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="accent-color-row">
+          <span>Accent Theme</span>
+          <div class="accent-palette">
+            <button class="accent-dot active" data-color="#7C3AED" style="background: #7C3AED;"></button>
+            <button class="accent-dot" data-color="#2563EB" style="background: #2563EB;"></button>
+            <button class="accent-dot" data-color="#059669" style="background: #059669;"></button>
+            <button class="accent-dot" data-color="#D946EF" style="background: #D946EF;"></button>
+            <button class="accent-dot" data-color="#F59E0B" style="background: #F59E0B;"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

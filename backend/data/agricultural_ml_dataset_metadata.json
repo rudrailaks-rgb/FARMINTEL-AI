@@ -1,0 +1,66 @@
+{
+  "dataset_name": "FARMINTEL_AI_US_AGRONOMIC_ML_BENCHMARK",
+  "version": "2.0.0",
+  "generation_timestamp": "2026-11-14T17:53:27.006863+00:00",
+  "sample_count": 2550,
+  "region_count": 17,
+  "regions_covered": [
+    "Story Co., IA",
+    "Champaign Co., IL",
+    "McLean Co., IL",
+    "Darke Co., OH",
+    "Blue Earth Co., MN",
+    "Hall Co. (Grand Island), NE",
+    "Finney Co. (Garden City), KS",
+    "Cass Co. (Fargo), ND",
+    "Spink Co., SD",
+    "Lubbock Co., TX",
+    "Fresno Co., CA",
+    "Tulare Co., CA",
+    "San Joaquin Co., CA",
+    "Yakima Co., WA",
+    "Yazoo Co., MS",
+    "Colquitt Co., GA",
+    "Wayne Co., NC"
+  ],
+  "feature_columns": [
+    "gdd_base50_f",
+    "mean_temp_c",
+    "heat_stress_days_35c",
+    "total_precip_in",
+    "et0_in",
+    "water_balance_in",
+    "max_dry_spell_days",
+    "topsoil_sand_pct",
+    "topsoil_silt_pct",
+    "topsoil_clay_pct",
+    "topsoil_ph",
+    "topsoil_om_pct",
+    "profile_awc_cm",
+    "drainage_class_num",
+    "hydrologic_group_num"
+  ],
+  "target_crops": [
+    "corn",
+    "soybeans",
+    "winter_wheat",
+    "grain_sorghum",
+    "alfalfa",
+    "oats",
+    "cereal_rye",
+    "red_clover",
+    "sunflower",
+    "barley"
+  ],
+  "target_labels": [
+    "suitability_<crop>",
+    "label_<crop>_suitable",
+    "yield_performance_index",
+    "climate_risk_class"
+  ],
+  "data_lineage": {
+    "climate_source": "NASA POWER Daily API MERRA-2 Reanalysis & CERES Insolation",
+    "soil_source": "USDA Natural Resources Conservation Service (SSURGO SDA Database)",
+    "agronomic_rules": "USDA ARS & Land-Grant Extension Agronomy Handbooks (Iowa State, Illinois, Purdue, Kansas State)"
+  }
+}

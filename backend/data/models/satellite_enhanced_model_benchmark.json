@@ -1,0 +1,120 @@
+{
+  "model_family": "Crop Suitability Random Forest Regressor",
+  "benchmark_timestamp": "2026-11-14T20:29:17.666544+00:00",
+  "evaluation_strategy": "Geographically Separated Cross-Validation (Held-out CA, KS, NC regions)",
+  "training_samples_count": 2100,
+  "geographic_test_samples_count": 450,
+  "baseline_v20": {
+    "version": "v2.0_climate_soil_baseline",
+    "features_count": 15,
+    "features_list": [
+      "gdd_base50_f",
+      "mean_temp_c",
+      "heat_stress_days_35c",
+      "total_precip_in",
+      "et0_in",
+      "water_balance_in",
+      "max_dry_spell_days",
+      "topsoil_sand_pct",
+      "topsoil_silt_pct",
+      "topsoil_clay_pct",
+      "topsoil_ph",
+      "topsoil_om_pct",
+      "profile_awc_cm",
+      "drainage_class_num",
+      "hydrologic_group_num"
+    ],
+    "overall_r2": 0.8347,
+    "overall_mae": 0.0294,
+    "overall_rmse": 0.0421
+  },
+  "satellite_enhanced_v21": {
+    "version": "v2.1_satellite_enhanced",
+    "features_count": 16,
+    "features_list": [
+      "gdd_base50_f",
+      "mean_temp_c",
+      "heat_stress_days_35c",
+      "total_precip_in",
+      "et0_in",
+      "water_balance_in",
+      "max_dry_spell_days",
+      "topsoil_sand_pct",
+      "topsoil_silt_pct",
+      "topsoil_clay_pct",
+      "topsoil_ph",
+      "topsoil_om_pct",
+      "profile_awc_cm",
+      "drainage_class_num",
+      "hydrologic_group_num",
+      "landsat_ndvi"
+    ],
+    "satellite_sensor": "USGS / NASA Landsat 8-9 Collection 2 Level-2 Surface Reflectance (SR_B4 & SR_B5)",
+    "overall_r2": 0.8346,
+    "overall_mae": 0.0288,
+    "overall_rmse": 0.0415,
+    "delta_r2": -0.0,
+    "delta_mae_reduction": 0.0006,
+    "ndvi_feature_importance_rank": 4,
+    "ndvi_feature_importance_pct": 6.24,
+    "top_5_features": [
+      "heat_stress_days_35c (70.6%)",
+      "water_balance_in (9.1%)",
+      "total_precip_in (6.8%)",
+      "landsat_ndvi (6.2%)",
+      "drainage_class_num (3.0%)"
+    ],
+    "per_crop_metrics": {
+      "corn": {
+        "r2_score": 0.9508,
+        "mae": 0.0351,
+        "rmse": 0.0568
+      },
+      "soybeans": {
+        "r2_score": 0.9907,
+        "mae": 0.0229,
+        "rmse": 0.0311
+      },
+      "winter_wheat": {
+        "r2_score": 0.9022,
+        "mae": 0.0393,
+        "rmse": 0.0508
+      },
+      "grain_sorghum": {
+        "r2_score": 0.8895,
+        "mae": 0.014,
+        "rmse": 0.0228
+      },
+      "alfalfa": {
+        "r2_score": 0.4486,
+        "mae": 0.0388,
+        "rmse": 0.0544
+      },
+      "oats": {
+        "r2_score": 0.9887,
+        "mae": 0.0222,
+        "rmse": 0.0291
+      },
+      "cereal_rye": {
+        "r2_score": 0.9366,
+        "mae": 0.0212,
+        "rmse": 0.0263
+      },
+      "red_clover": {
+        "r2_score": 0.7106,
+        "mae": 0.0382,
+        "rmse": 0.0487
+      },
+      "sunflower": {
+        "r2_score": 0.5434,
+        "mae": 0.0361,
+        "rmse": 0.0471
+      },
+      "barley": {
+        "r2_score": 0.9853,
+        "mae": 0.02,
+        "rmse": 0.0291
+      }
+    }
+  }
+}

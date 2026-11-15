@@ -1,0 +1,138 @@
+{
+  "model_name": "RandomForest_MultiCrop_Suitability_Ensemble",
+  "model_version": "2.0.0",
+  "algorithm": "RandomForestRegressor (120 estimators, max_depth=12)",
+  "training_timestamp": "2026-11-14T17:54:40.737469+00:00",
+  "train_samples": 2040,
+  "test_samples": 510,
+  "feature_count": 15,
+  "features": [
+    "gdd_base50_f",
+    "mean_temp_c",
+    "heat_stress_days_35c",
+    "total_precip_in",
+    "et0_in",
+    "water_balance_in",
+    "max_dry_spell_days",
+    "topsoil_sand_pct",
+    "topsoil_silt_pct",
+    "topsoil_clay_pct",
+    "topsoil_ph",
+    "topsoil_om_pct",
+    "profile_awc_cm",
+    "drainage_class_num",
+    "hydrologic_group_num"
+  ],
+  "target_crops": [
+    "corn",
+    "soybeans",
+    "winter_wheat",
+    "grain_sorghum",
+    "alfalfa",
+    "oats",
+    "cereal_rye",
+    "red_clover",
+    "sunflower",
+    "barley"
+  ],
+  "overall_metrics": {
+    "r2_score": 0.946,
+    "mae": 0.015,
+    "rmse": 0.0254,
+    "cv_5fold_r2_mean": -7.602630863756182e+23,
+    "cv_5fold_r2_std": 1.5205261727512363e+24
+  },
+  "per_crop_metrics": {
+    "corn": {
+      "r2_score": 0.9946,
+      "mae": 0.0183,
+      "rmse": 0.029,
+      "test_mean_suitability": 0.538,
+      "pred_mean_suitability": 0.54
+    },
+    "soybeans": {
+      "r2_score": 0.9968,
+      "mae": 0.0121,
+      "rmse": 0.0192,
+      "test_mean_suitability": 0.678,
+      "pred_mean_suitability": 0.678
+    },
+    "winter_wheat": {
+      "r2_score": 0.9605,
+      "mae": 0.0197,
+      "rmse": 0.032,
+      "test_mean_suitability": 0.754,
+      "pred_mean_suitability": 0.757
+    },
+    "grain_sorghum": {
+      "r2_score": 0.9339,
+      "mae": 0.0068,
+      "rmse": 0.0136,
+      "test_mean_suitability": 0.791,
+      "pred_mean_suitability": 0.792
+    },
+    "alfalfa": {
+      "r2_score": 0.9345,
+      "mae": 0.0172,
+      "rmse": 0.0311,
+      "test_mean_suitability": 0.84,
+      "pred_mean_suitability": 0.841
+    },
+    "oats": {
+      "r2_score": 0.9926,
+      "mae": 0.014,
+      "rmse": 0.0217,
+      "test_mean_suitability": 0.771,
+      "pred_mean_suitability": 0.771
+    },
+    "cereal_rye": {
+      "r2_score": 0.9609,
+      "mae": 0.0103,
+      "rmse": 0.0176,
+      "test_mean_suitability": 0.915,
+      "pred_mean_suitability": 0.916
+    },
+    "red_clover": {
+      "r2_score": 0.9392,
+      "mae": 0.0186,
+      "rmse": 0.028,
+      "test_mean_suitability": 0.885,
+      "pred_mean_suitability": 0.885
+    },
+    "sunflower": {
+      "r2_score": 0.756,
+      "mae": 0.0216,
+      "rmse": 0.0338,
+      "test_mean_suitability": 0.943,
+      "pred_mean_suitability": 0.943
+    },
+    "barley": {
+      "r2_score": 0.9912,
+      "mae": 0.011,
+      "rmse": 0.0191,
+      "test_mean_suitability": 0.834,
+      "pred_mean_suitability": 0.835
+    }
+  },
+  "feature_importances": {
+    "heat_stress_days_35c": 0.7056,
+    "water_balance_in": 0.1663,
+    "total_precip_in": 0.0636,
+    "drainage_class_num": 0.0223,
+    "topsoil_sand_pct": 0.0096,
+    "topsoil_ph": 0.0071,
+    "topsoil_clay_pct": 0.006,
+    "profile_awc_cm": 0.0037,
+    "topsoil_silt_pct": 0.0036,
+    "topsoil_om_pct": 0.0033,
+    "max_dry_spell_days": 0.0029,
+    "hydrologic_group_num": 0.0019,
+    "et0_in": 0.0017,
+    "gdd_base50_f": 0.0014,
+    "mean_temp_c": 0.0012
+  },
+  "provenance": {
+    "training_dataset": "agricultural_ml_dataset.csv (2,550 multi-region samples)",
+    "input_sources": "NASA POWER MERRA-2 + USDA NRCS SSURGO SDA"
+  }
+}

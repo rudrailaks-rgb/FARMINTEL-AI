@@ -1,0 +1,36 @@
+{
+  "model_name": "GradientBoosting_YieldPerformance_Regressor",
+  "model_version": "2.0.0",
+  "algorithm": "GradientBoostingRegressor (100 estimators, lr=0.08, max_depth=5)",
+  "training_timestamp": "2026-11-14T17:55:32.032733+00:00",
+  "train_samples": 2040,
+  "test_samples": 510,
+  "metrics": {
+    "r2_score": 0.9969,
+    "mae": 0.0064,
+    "rmse": 0.0126,
+    "test_mean_yield_factor": 1.056,
+    "pred_mean_yield_factor": 1.055
+  },
+  "feature_importances": {
+    "water_balance_in": 0.857,
+    "total_precip_in": 0.0672,
+    "gdd_base50_f": 0.0617,
+    "profile_awc_cm": 0.0049,
+    "mean_temp_c": 0.0021,
+    "et0_in": 0.0021,
+    "topsoil_clay_pct": 0.0021,
+    "topsoil_om_pct": 0.001,
+    "drainage_class_num": 0.0008,
+    "topsoil_sand_pct": 0.0004,
+    "topsoil_ph": 0.0004,
+    "topsoil_silt_pct": 0.0002,
+    "max_dry_spell_days": 0.0001,
+    "heat_stress_days_35c": 0.0,
+    "hydrologic_group_num": 0.0
+  },
+  "provenance": {
+    "training_dataset": "agricultural_ml_dataset.csv (2,550 multi-region samples)",
+    "input_sources": "NASA POWER MERRA-2 + USDA NRCS SSURGO SDA"
+  }
+}

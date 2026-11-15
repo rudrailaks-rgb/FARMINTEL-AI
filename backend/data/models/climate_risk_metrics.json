@@ -1,0 +1,52 @@
+{
+  "model_name": "GradientBoosting_ClimateRisk_Classifier",
+  "model_version": "2.0.0",
+  "algorithm": "GradientBoostingClassifier (100 estimators, lr=0.08, max_depth=5)",
+  "training_timestamp": "2026-11-14T17:55:29.977883+00:00",
+  "train_samples": 2040,
+  "test_samples": 510,
+  "classes": [
+    "0: Low Risk",
+    "1: Moderate Stress",
+    "2: High Climate Stress"
+  ],
+  "metrics": {
+    "accuracy": 0.998,
+    "precision": 0.998,
+    "recall": 0.998,
+    "f1_score": 0.998
+  },
+  "confusion_matrix": [
+    [
+      118,
+      0,
+      0
+    ],
+    [
+      0,
+      151,
+      1
+    ],
+    [
+      0,
+      0,
+      240
+    ]
+  ],
+  "feature_importances": {
+    "max_dry_spell_days": 0.3952,
+    "heat_stress_days_35c": 0.3164,
+    "et0_in": 0.2231,
+    "water_balance_in": 0.0653,
+    "gdd_base50_f": 0.0,
+    "mean_temp_c": 0.0,
+    "total_precip_in": 0.0,
+    "topsoil_sand_pct": 0.0,
+    "profile_awc_cm": 0.0,
+    "hydrologic_group_num": 0.0
+  },
+  "provenance": {
+    "training_dataset": "agricultural_ml_dataset.csv (2,550 multi-region samples)",
+    "input_sources": "NASA POWER MERRA-2 daily climate observations"
+  }
+}

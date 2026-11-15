@@ -1,0 +1,117 @@
+{
+  "study_area_id": "ATHANI_ERODE_AGRI",
+  "official_name": "Athani Agricultural Region",
+  "administrative_hierarchy": {
+    "country": "India",
+    "iso_country_code": "IN",
+    "state": "Tamil Nadu",
+    "state_iso_code": "IN-TN",
+    "state_lgd_code": 33,
+    "district": "Erode",
+    "district_lgd_code": 527,
+    "census_2011_district_code": 610,
+    "taluk": "Anthiyur",
+    "taluk_lgd_code": 5969,
+    "revenue_village_town_panchayat": "Athani (Selection Grade Town Panchayat)",
+    "ulb_code_lgd": 252536,
+    "census_2011_town_code": "803514",
+    "postal_pincode": "638502"
+  },
+  "spatial_reference": {
+    "crs": "EPSG:4326 (WGS84)",
+    "provisional_coordinates": {
+      "latitude": 11.523104,
+      "longitude": 77.514614
+    },
+    "verified_centroid": {
+      "latitude": 11.523104,
+      "longitude": 77.514614,
+      "verification_source": "OpenStreetMap Node 1443165485 (11.523530 N, 77.512429 E), offset 243.5m along SH-82 Sathy-Athani-Bhavani Road"
+    },
+    "bounding_box": {
+      "west": 77.46877,
+      "south": 11.47789,
+      "east": 77.56045,
+      "north": 11.56832
+    },
+    "spatial_extents": {
+      "admin_town_panchayat_area_km2": 8.0,
+      "agricultural_study_buffer_km": 5.0,
+      "agricultural_study_area_km2": 78.54,
+      "bounding_box_area_km2": 99.99
+    }
+  },
+  "geographic_context": {
+    "elevation_range_m": "210 - 250 m AMSL",
+    "river_basin": "Cauvery Basin (Bhavani River sub-basin)",
+    "irrigation_infrastructure": "Lower Bhavani Project (LBP) canal network and Bhavani river lift irrigation",
+    "agroclimatic_zone": "Western Agroclimatic Zone of Tamil Nadu",
+    "soil_characteristics": "Predominantly red sandy loam, deep red loamy soils, and alluvial/vertic clay-loam along river floodplains",
+    "major_crops": [
+      "Sugarcane (Saccharum officinarum)",
+      "Turmeric (Curcuma longa)",
+      "Banana (Musa acuminata)",
+      "Paddy (Oryza sativa)",
+      "Maize (Zea mays)",
+      "Coconut (Cocos nucifera)",
+      "Groundnut (Arachis hypogaea)",
+      "Tapioca (Manihot esculenta)"
+    ]
+  },
+  "disambiguation": {
+    "distinguished_from": [
+      {
+        "name": "Athani, Belagavi, Karnataka",
+        "coordinates": "16.7270\u00b0 N, 75.0631\u00b0 E",
+        "description": "Taluk headquarters in Northern Karnataka (~600 km north), dry Deccan plateau"
+      },
+      {
+        "name": "Athani, Thrissur, Kerala",
+        "coordinates": "10.6208\u00b0 N, 76.2191\u00b0 E",
+        "description": "Locality in Talappilly taluk, Thrissur district, Kerala"
+      },
+      {
+        "name": "Athani, Ernakulam, Kerala",
+        "coordinates": "10.1564\u00b0 N, 76.3545\u00b0 E",
+        "description": "Locality near Cochin International Airport (Nedumbassery), Aluva taluk"
+      },
+      {
+        "name": "Athani, Malappuram, Kerala",
+        "coordinates": "10.7610\u00b0 N, 75.9668\u00b0 E",
+        "description": "Coastal locality in Ponnani, Kerala"
+      },
+      {
+        "name": "Att\u0101ni, Pudukkottai, Tamil Nadu",
+        "coordinates": "10.1229\u00b0 N, 78.9579\u00b0 E",
+        "description": "Village in Aranthangi taluk, Pudukkottai district"
+      }
+    ]
+  },
+  "sensor_pixel_mapping": {
+    "nasa_power": {
+      "native_resolution": "0.5 x 0.5 degrees",
+      "nearest_grid_center": "11.50\u00b0 N, 77.50\u00b0 E",
+      "query_point": "11.523104, 77.514614",
+      "grid_representation": "Regional agroclimatology cell representing Athani/Bhavani basin"
+    },
+    "smap_soil_moisture": {
+      "spl3smp_e_resolution": "9 km x 9 km EASE-Grid 2.0",
+      "spl3smp_resolution": "36 km x 36 km EASE-Grid 2.0",
+      "spl4smgp_resolution": "9 km x 9 km global 3-hourly geophysical modeling",
+      "pixel_selection": "Single 9 km pixel centered directly over Athani bounding box"
+    },
+    "modis_vegetation": {
+      "product": "MOD13Q1 Version 6.1 (250m)",
+      "sinusoidal_tile": "h25v07",
+      "study_area_pixels_approx": "Approx 40 x 40 = 1,600 pixels across the 10km x 10km AOI",
+      "masking_strategy": "Clip to agricultural AOI buffer and filter using Summary QA flags"
+    },
+    "gpm_imerg": {
+      "native_resolution": "0.1 x 0.1 degrees (~10.8 km x 10.8 km)",
+      "grid_cell": "Grid cell encompassing 11.45\u00b0 - 11.55\u00b0 N, 77.45\u00b0 - 77.55\u00b0 E",
+      "purpose": "High temporal resolution satellite precipitation comparison against NASA POWER and ground data"
+    }
+  },
+  "verification_status": "VERIFIED_STAGE_1_COMPLETE",
+  "last_updated": "2026-11-12T20:40:00+05:30"
+}
