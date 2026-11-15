@@ -2,22 +2,18 @@ services:
   - type: web
     name: farmintel-api
     runtime: python
-    plan: starter
+    plan: free
     buildCommand: pip install -r backend/requirements.txt
     startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /api/health
-    disk:
-      name: farmintel-data
-      mountPath: /var/data
-      sizeGB: 1
     envVars:
       - key: PYTHON_VERSION
         value: 3.13.14
       - key: ENVIRONMENT
         value: production
       - key: SQLITE_DB_PATH
-        value: /var/data/farmintel.db
+        value: /tmp/farmintel.db
       - key: CACHE_DIR_PATH
-        value: /var/data/cache
+        value: /tmp/cache
       - key: CORS_ORIGINS
         sync: false
