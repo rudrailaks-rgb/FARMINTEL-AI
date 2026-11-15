@@ -40,3 +40,14 @@ brain/
 
 # Local databases
 backend/data/*.db
+
+# Local runtime state and temporary files
+backend/data/cache/
+Field_Shift/data/
+*.tmp
+*.temp
+*.swp
+*.swo
+tmp/
+temp/
+.cache/

@@ -47,13 +47,12 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         content={"detail": clean_msg, "error_type": "VALIDATION_ERROR"}
     )
 
-# Enable CORS for local React/Vite development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=settings.CORS_ORIGINS,
+    allow_credentials=False,
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type"],
 )
 
 # Register Sub-Routers
@@ -88,4 +87,9 @@ if os.path.exists(frontend_dist):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("backend.app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(
+        "backend.app.main:app",
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", "8000")),
+        reload=settings.ENVIRONMENT != "production",
+    )
